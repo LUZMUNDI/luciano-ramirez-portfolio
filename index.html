@@ -849,18 +849,30 @@
 
     <!-- Project 1: JKD School -->
     <div class="project-card wide" data-category="web brand" onclick="openModal('jkd')">
-      <div class="project-placeholder placeholder-jkd">
-        <div class="placeholder-lines"></div>
-        <div class="placeholder-icon">🥋</div>
+      <div style="width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:#0E0E0E;display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(242,237,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,227,0.03) 1px,transparent 1px);background-size:60px 60px;"></div>
+        <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(184,147,90,0.07) 0%,transparent 65%);"></div>
+        <div style="position:relative;text-align:center;user-select:none;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:5.5rem;line-height:1;color:rgba(242,237,227,0.08);letter-spacing:-0.02em;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(2.2);white-space:nowrap;pointer-events:none;">截拳道</div>
+          <div style="font-family:Georgia,serif;font-size:1rem;letter-spacing:0.32em;color:#B8935A;text-transform:uppercase;margin-bottom:1.2rem;position:relative;">Jeet Kune Do</div>
+          <div style="font-family:Georgia,serif;font-size:3.2rem;font-weight:400;color:#F2EDE3;letter-spacing:0.04em;line-height:1;position:relative;">München</div>
+          <div style="width:40px;height:1px;background:#B8935A;margin:1.2rem auto;"></div>
+          <div style="font-family:monospace;font-size:0.65rem;letter-spacing:0.22em;color:rgba(184,147,90,0.6);text-transform:uppercase;">Since 1992</div>
+        </div>
+        <div style="position:absolute;bottom:1.5rem;right:1.8rem;width:32px;height:32px;border:1px solid rgba(139,47,31,0.6);display:flex;align-items:center;justify-content:center;transform:rotate(-3deg);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:0.9rem;color:#8B2F1F;">道</span>
+        </div>
+        <div style="position:absolute;top:1.5rem;left:1.8rem;font-family:monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(242,237,227,0.15);">JKDM · Brand + Web + Content</div>
       </div>
       <div class="project-overlay">
         <div class="project-tags">
           <span class="project-tag">Web</span>
           <span class="project-tag">Brand</span>
+          <span class="project-tag">Video</span>
           <span class="project-tag">Strategy</span>
         </div>
-        <div class="project-title" data-en="Jeet Kune Do Munich" data-de="Jeet Kune Do München">Jeet Kune Do Munich</div>
-        <div class="project-desc" data-en="Full brand strategy, audience research, and website for a local martial arts school." data-de="Vollständige Markenstrategie, Zielgruppenforschung und Website für eine lokale Kampfkunstschule.">Full brand strategy, audience research, and website for a local martial arts school.</div>
+        <div class="project-title" data-en="Jeet Kune Do München" data-de="Jeet Kune Do München">Jeet Kune Do München</div>
+        <div class="project-desc" data-en="End-to-end campaign: brand guidelines, website, and 3-video content strategy for a private Munich martial arts studio." data-de="End-to-End-Kampagne: Brand Guidelines, Website und 3-Video-Content-Strategie für ein privates Münchner Kampfkunststudio.">End-to-end campaign: brand guidelines, website, and 3-video content strategy for a private Munich martial arts studio.</div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
@@ -976,9 +988,18 @@
 
   <!-- JKD Modal -->
   <div class="modal" id="modal-jkd" style="display:none">
-    <div class="modal-hero placeholder-jkd" style="aspect-ratio:16/7">
-      <div class="placeholder-lines"></div>
-      <div style="font-size:5rem;opacity:0.15;filter:grayscale(1)">🥋</div>
+    <div style="width:100%;aspect-ratio:16/7;background:#0E0E0E;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(242,237,227,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,227,0.025) 1px,transparent 1px);background-size:50px 50px;"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,147,90,0.08) 0%,transparent 60%);"></div>
+      <div style="position:relative;text-align:center;">
+        <div style="font-family:Georgia,serif;font-size:0.75rem;letter-spacing:0.4em;color:#B8935A;text-transform:uppercase;margin-bottom:1rem;">Jeet Kune Do</div>
+        <div style="font-family:Georgia,serif;font-size:4rem;font-weight:300;color:#F2EDE3;letter-spacing:0.06em;line-height:1;">München</div>
+        <div style="width:50px;height:0.5px;background:#B8935A;margin:1rem auto;"></div>
+        <div style="font-family:monospace;font-size:0.6rem;letter-spacing:0.28em;color:rgba(184,147,90,0.55);text-transform:uppercase;">Der Weg der abfangenden Faust</div>
+      </div>
+      <div style="position:absolute;bottom:1.5rem;right:2rem;display:flex;gap:1rem;align-items:center;">
+        <span style="font-family:monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(242,237,227,0.2);">Web · Brand · Video · Strategy</span>
+      </div>
     </div>
     <div class="modal-body">
       <div class="modal-meta">
@@ -986,29 +1007,51 @@
           <div class="project-tags" style="margin-bottom:0.5rem">
             <span class="project-tag">Web</span>
             <span class="project-tag">Brand</span>
+            <span class="project-tag">Video</span>
             <span class="project-tag">Strategy</span>
           </div>
-          <h3 class="modal-title" data-en="Jeet Kune Do Munich" data-de="Jeet Kune Do München">Jeet Kune Do Munich</h3>
-          <p class="modal-subtitle" data-en="Local martial arts school — full digital presence" data-de="Lokale Kampfkunstschule — vollständige digitale Präsenz">Local martial arts school — full digital presence</p>
+          <h3 class="modal-title" data-en="Jeet Kune Do München" data-de="Jeet Kune Do München">Jeet Kune Do München</h3>
+          <p class="modal-subtitle" data-en="Private martial arts studio, Munich — brand identity, website & content campaign" data-de="Privates Kampfkunststudio, München — Markenidentität, Website & Content-Kampagne">Private martial arts studio, Munich — brand identity, website & content campaign</p>
         </div>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
+
+      <!-- Full-width objective -->
+      <div class="modal-section">
+        <h4 data-en="Objective" data-de="Ziel">Objective</h4>
+        <p data-en="Increase local awareness and generate trial class enquiries for a private Munich studio where Sifu Dominik has taught Jeet Kune Do, Wing Chun, self-defence, and Chen Tai Chi since 1992. The challenge: position a deeply personal, philosophy-driven school in a market dominated by fitness-oriented martial arts clubs." data-de="Lokale Bekanntheit steigern und Probetraining-Anfragen für ein privates Münchner Studio generieren, in dem Sifu Dominik seit 1992 Jeet Kune Do, Wing Chun, Selbstverteidigung und Chen Tai Chi unterrichtet. Die Herausforderung: eine tiefgründige, philosophiegetriebene Schule in einem von Fitness-orientierten Kampfsportvereinen dominierten Markt positionieren.">Increase local awareness and generate trial class enquiries for a private Munich studio where Sifu Dominik has taught Jeet Kune Do, Wing Chun, self-defence, and Chen Tai Chi since 1992. The challenge: position a deeply personal, philosophy-driven school in a market dominated by fitness-oriented martial arts clubs.</p>
+      </div>
+
       <div class="modal-grid">
         <div class="modal-section">
-          <h4 data-en="The Brief" data-de="Der Brief">The Brief</h4>
-          <p data-en="A local Jeet Kune Do school in Munich needed a digital presence that reflected the philosophy and discipline of the art — not just a generic sports website." data-de="Eine lokale Jeet-Kune-Do-Schule in München brauchte eine digitale Präsenz, die die Philosophie und Disziplin der Kunst widerspiegelt.">A local Jeet Kune Do school in Munich needed a digital presence that reflected the philosophy and discipline of the art — not just a generic sports website.</p>
+          <h4 data-en="Target Audience" data-de="Zielgruppe">Target Audience</h4>
+          <p data-en="Men aged 20–45 in Munich. <strong>Not gym-goers</strong> — seekers. Men disillusioned with superficial training, drawn to discipline, structure, and real-world self-defence. They value authenticity and are put off by aggressive fitness marketing. Training happens in an exclusive group where everyone receives individual attention — it feels like an invitation, not a membership." data-de="Männer zwischen 20 und 45 Jahren in München. <strong>Keine Fitnessstudio-Besucher</strong> — Suchende. Männer, die von oberflächlichem Training enttäuscht sind und Disziplin, Struktur und reale Selbstverteidigung suchen. Sie schätzen Authentizität und werden von aggressivem Fitness-Marketing abgeschreckt. Das Training findet in einer exklusiven Gruppe statt, in der jeder individuelle Aufmerksamkeit bekommt — es fühlt sich wie eine Einladung an, nicht wie eine Mitgliedschaft.">Men aged 20–45 in Munich. <strong>Not gym-goers</strong> — seekers. Men disillusioned with superficial training, drawn to discipline, structure, and real-world self-defence. They value authenticity and are put off by aggressive fitness marketing. Training happens in an exclusive group where everyone receives individual attention — it feels like an invitation, not a membership.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Audience Insight" data-de="Zielgruppenanalyse">Audience Insight</h4>
-          <p data-en="Research revealed two core audiences: adults seeking personal development through martial arts, and parents looking for structured, values-based training for their children." data-de="Die Forschung zeigte zwei Kernzielgruppen: Erwachsene, die persönliche Entwicklung durch Kampfkunst suchen, und Eltern, die strukturiertes Training für ihre Kinder suchen.">Research revealed two core audiences: adults seeking personal development through martial arts, and parents looking for structured, values-based training for their children.</p>
+          <h4 data-en="Market Gap" data-de="Marktlücke">Market Gap</h4>
+          <p data-en="Most Munich martial arts schools present themselves as either <strong>fitness-oriented</strong> or <strong>hobby-based</strong>. Neither speaks to someone who wants serious, transformative, practical training. JKDM's positioning: raw, focused, no fitness-marketing clichés. A school that doesn't need to convince — it simply shows itself." data-de="Die meisten Münchner Kampfkunstschulen positionieren sich entweder als <strong>fitnessorientiert</strong> oder als <strong>hobbybasiert</strong>. Keine spricht jemanden an, der ernstes, transformatives, praktisches Training sucht. JKDMs Positionierung: roh, fokussiert, ohne Fitness-Marketing-Klischees.">Most Munich martial arts schools present themselves as either <strong>fitness-oriented</strong> or <strong>hobby-based</strong>. Neither speaks to someone who wants serious, transformative, practical training. JKDM's positioning: raw, focused, no fitness-marketing clichés. A school that doesn't need to convince — it simply shows itself.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Strategy" data-de="Strategie">Strategy</h4>
-          <p data-en="Positioned the school around Bruce Lee's philosophy: adaptability, self-expression, and discipline. The site communicates depth — not just schedules and prices." data-de="Die Schule wurde rund um Bruce Lees Philosophie positioniert: Anpassungsfähigkeit, Selbstausdruck und Disziplin.">Positioned the school around Bruce Lee's philosophy: adaptability, self-expression, and discipline. The site communicates depth — not just schedules and prices.</p>
+          <h4 data-en="Brand Identity" data-de="Markenidentität">Brand Identity</h4>
+          <p data-en="Built a complete brand system from scratch: a 17-page guidelines document covering tone of voice, a 5-colour palette drawn from the studio's materials — ink, rice paper, brass, stone — typography hierarchy using Cormorant Garamond and Inter, logo rules, photography direction, and web layout principles. Every decision has a reason." data-de="Ein vollständiges Markensystem von Grund auf aufgebaut: ein 17-seitiges Guidelines-Dokument mit Tone of Voice, einer 5-Farben-Palette aus dem Vokabular des Studios — Tusche, Reispapier, Messing, Stein — Typografiehierarchie, Logo-Regeln, Fotoregie und Web-Layout-Prinzipien.">Built a complete brand system from scratch: a 17-page guidelines document covering tone of voice, a 5-colour palette drawn from the studio's materials — ink, rice paper, brass, stone — typography hierarchy using Cormorant Garamond and Inter, logo rules, photography direction, and web layout principles. Every decision has a reason.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Deliverables" data-de="Ergebnisse">Deliverables</h4>
-          <p data-en="<strong>Website</strong> built and live · <strong>Brand guidelines</strong> · <strong>Audience research document</strong> · <strong>3 pieces of video content</strong>" data-de="<strong>Website</strong> erstellt und live · <strong>Brand Guidelines</strong> · <strong>Zielgruppenforschung</strong> · <strong>3 Videoinhalte</strong>"><strong>Website</strong> built and live · <strong>Brand guidelines</strong> · <strong>Audience research document</strong> · <strong>3 pieces of video content</strong></p>
+          <h4 data-en="Content Strategy" data-de="Content-Strategie">Content Strategy</h4>
+          <p data-en="Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> (Sifu talking head + B-roll) to establish narrative and credibility; a <strong>20s short-form cut</strong> optimised for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> of a student executing 4 techniques to create immersion and reduce the perceived distance to training." data-de="Ein <strong>3-Format-Videosystem</strong> entwickelt, jedes mit einer eigenen Rolle: ein <strong>60s Hero-Video</strong> (Sifu Talking Head + B-Roll) für Narrative und Glaubwürdigkeit; ein <strong>20s Short-Form-Schnitt</strong> für Reels/TikTok als Conversion-Trigger; und ein <strong>13s POV-Video</strong> eines Schülers, der 4 Techniken ausführt.">Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> (Sifu talking head + B-roll) to establish narrative and credibility; a <strong>20s short-form cut</strong> optimised for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> of a student executing 4 techniques to create immersion and reduce the perceived distance to training.</p>
+        </div>
+      </div>
+
+      <!-- Deliverables full width -->
+      <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
+        <h4 data-en="Deliverables" data-de="Ergebnisse">Deliverables</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem;">
+          <a href="https://luzmundi.github.io/jkdm-website/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Website (live)" data-de="↗ Website (live)">↗ Website (live)</a>
+          <a href="https://luzmundi.github.io/luciano-ramirez-portfolio/JKDM_Brand_Guidelines.pdf" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Brand Guidelines PDF" data-de="↗ Brand Guidelines PDF">↗ Brand Guidelines PDF</a>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="Audience Research Doc" data-de="Zielgruppenanalyse">Audience Research Doc</span>
+          <a href="https://youtube.com/shorts/PvtKm_eDefU?si=-VRJlEKnI3YuosPm" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 60s Hero Video" data-de="↗ 60s Hero-Video">↗ 60s Hero Video</a>
+          <a href="https://youtube.com/shorts/864cIjF-1B4?si=PoYyqsoeR3Jf0bkd" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 20s Social Cut" data-de="↗ 20s Social-Cut">↗ 20s Social Cut</a>
+          <a href="https://youtube.com/shorts/jjmuAcsshp0?si=8yVZHOi6uSmeuoAO" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 13s POV Video" data-de="↗ 13s POV-Video">↗ 13s POV Video</a>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="Content Campaign Structure" data-de="Content-Kampagnenstruktur">Content Campaign Structure</span>
         </div>
       </div>
     </div>
