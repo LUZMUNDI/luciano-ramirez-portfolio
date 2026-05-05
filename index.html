@@ -729,6 +729,11 @@
   .modal-link:hover { background: #9488f8; }
 
   /* Animations */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -751,11 +756,30 @@
     section { padding: 5rem 2rem; }
     #hero { padding: 7rem 2rem 4rem; }
     #about { grid-template-columns: 1fr; gap: 3rem; }
-    .project-card.wide, .project-card.narrow, .project-card.half { grid-column: span 12; }
+    .project-card.wide,
+    .project-card.narrow,
+    .project-card.half { grid-column: span 12; }
+    .projects-grid { gap: 8px; }
     .process-grid { grid-template-columns: 1fr 1fr; }
     .process-step { border-bottom: 0.5px solid var(--border); }
     .work-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .modal { margin: 1rem; }
+    .modal-body { padding: 1.5rem; }
+    .modal-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: clamp(3rem, 12vw, 9rem); }
+  }
+
+  @media (max-width: 600px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .filter-bar { flex-wrap: wrap; }
+    .hero-cta { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none !important; }
   }
 </style>
 </head>
@@ -904,37 +928,62 @@
       <div class="project-arrow">↗</div>
     </div>
 
-    <!-- Project 3: Church -->
+    <!-- Project 3: Jesus Haus München -->
     <div class="project-card half" data-category="web brand" onclick="openModal('church')">
-      <div class="project-placeholder placeholder-church">
-        <div class="placeholder-lines"></div>
-        <div class="placeholder-icon">⛪</div>
+      <div style="width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:#1C2B1E;display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(74,124,89,0.25) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(74,124,89,0.15) 0%,transparent 50%);"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(245,244,240,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,244,240,0.03) 1px,transparent 1px);background-size:48px 48px;"></div>
+        <div style="position:relative;text-align:center;user-select:none;">
+<img src="data:image/png;base64,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" alt="Jesus Haus Logo" style="width:64px;height:64px;object-fit:contain;margin:0 auto 1rem;display:block;mix-blend-mode:screen;opacity:0.7;">
+          <div style="font-family:Georgia,serif;font-size:0.6rem;letter-spacing:0.4em;color:rgba(94,148,112,0.8);text-transform:uppercase;margin-bottom:0.5rem;">Jesus Haus Netzwerk</div>
+          <div style="font-family:Georgia,serif;font-size:1.6rem;font-weight:400;color:#F5F4F0;letter-spacing:0.04em;line-height:1;">München</div>
+          <div style="width:32px;height:1px;background:rgba(74,124,89,0.6);margin:0.8rem auto;"></div>
+          <div style="font-family:monospace;font-size:0.55rem;letter-spacing:0.2em;color:rgba(94,148,112,0.6);text-transform:uppercase;">Outreach · Content · Community</div>
+        </div>
+        <div style="position:absolute;top:1rem;right:1.2rem;font-family:monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(245,244,240,0.2);">Active Project</div>
+        <div style="position:absolute;bottom:1rem;left:1.2rem;display:flex;align-items:center;gap:6px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#4A7C59;animation:pulse 2s ease-in-out infinite;"></div>
+          <span style="font-family:monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(74,124,89,0.7);">In Entwicklung</span>
+        </div>
       </div>
       <div class="project-overlay">
         <div class="project-tags">
-          <span class="project-tag">Web</span>
-          <span class="project-tag">Brand</span>
+          <span class="project-tag">Outreach</span>
           <span class="project-tag">Content</span>
+          <span class="project-tag">Community</span>
+          <span class="project-tag">Strategy</span>
         </div>
-        <div class="project-title" data-en="Local Church — Digital Presence" data-de="Lokale Kirche — Digitale Präsenz">Local Church — Digital Presence</div>
-        <div class="project-desc" data-en="Website, brand guidelines, and content strategy for a local church community." data-de="Website, Brand Guidelines und Content-Strategie für eine lokale Kirchengemeinde.">Website, brand guidelines, and content strategy for a local church community.</div>
+        <div class="project-title" data-en="Jesus Haus München" data-de="Jesus Haus München">Jesus Haus München</div>
+        <div class="project-desc" data-en="Refugee camp outreach campaign that doubled German class attendance — plus content creation and community building for a Munich church." data-de="Outreach-Kampagne in Flüchtlingslagern, die die Teilnehmerzahl der Deutschkurse verdoppelte — plus Content Creation und Community Building für eine Münchner Gemeinde.">Refugee camp outreach campaign that doubled German class attendance — plus content creation and community building for a Munich church.</div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
 
-    <!-- Project 4: Brand Guidelines -->
+    <!-- Project 4: JKDM Brand Guidelines -->
     <div class="project-card half" data-category="brand" onclick="openModal('brand')">
-      <div class="project-placeholder placeholder-brand">
-        <div class="placeholder-lines"></div>
-        <div class="placeholder-icon">📐</div>
+      <div style="width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:#F2EDE3;display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(14,14,14,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,14,14,0.04) 1px,transparent 1px);background-size:44px 44px;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#B8935A,#0E0E0E,#B8935A);"></div>
+        <div style="position:relative;text-align:center;user-select:none;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:6rem;line-height:1;color:rgba(14,14,14,0.055);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;">截拳道</div>
+          <div style="font-family:monospace;font-size:0.6rem;letter-spacing:0.45em;color:#B8935A;text-transform:uppercase;margin-bottom:1rem;position:relative;">Brand Guidelines</div>
+          <div style="font-family:Georgia,serif;font-size:2rem;font-weight:400;color:#0E0E0E;letter-spacing:0.04em;line-height:1;position:relative;">JKDM</div>
+          <div style="font-family:Georgia,serif;font-size:0.85rem;font-weight:300;font-style:italic;color:#6E6A60;margin-top:0.4rem;position:relative;">Version 1.0 · 2026</div>
+          <div style="width:32px;height:1px;background:#B8935A;margin:1rem auto;"></div>
+          <div style="font-family:monospace;font-size:0.55rem;letter-spacing:0.2em;color:rgba(110,106,96,0.6);text-transform:uppercase;">16 Seiten · Vollständiges Identitätssystem</div>
+        </div>
+        <div style="position:absolute;bottom:1.2rem;right:1.5rem;width:28px;height:28px;background:#8B2F1F;display:flex;align-items:center;justify-content:center;transform:rotate(-3deg);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:0.75rem;color:#F2EDE3;">道</span>
+        </div>
       </div>
       <div class="project-overlay">
         <div class="project-tags">
           <span class="project-tag">Brand</span>
           <span class="project-tag">Strategy</span>
+          <span class="project-tag">Identity</span>
         </div>
-        <div class="project-title" data-en="Brand Guidelines System" data-de="Brand Guidelines System">Brand Guidelines System</div>
-        <div class="project-desc" data-en="Comprehensive brand identity and guidelines — voice, visual system, and audience mapping." data-de="Umfassende Markenidentität und Guidelines — Tone of Voice, visuelles System und Zielgruppen-Mapping.">Comprehensive brand identity and guidelines — voice, visual system, and audience mapping.</div>
+        <div class="project-title" data-en="JKDM Brand Guidelines" data-de="JKDM Brand Guidelines">JKDM Brand Guidelines</div>
+        <div class="project-desc" data-en="A complete 16-page brand identity system — colour palette, typography, tone of voice, imagery, web system and launch checklist." data-de="Ein vollständiges 16-seitiges Markenidentitätssystem — Farbpalette, Typografie, Tone of Voice, Bildsprache, Web-System und Launch-Checkliste.">A complete 16-page brand identity system — colour palette, typography, tone of voice, imagery, web system and launch checklist.</div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
@@ -1134,39 +1183,69 @@
 
   <!-- Church Modal -->
   <div class="modal" id="modal-church" style="display:none">
-    <div class="modal-hero placeholder-church" style="aspect-ratio:16/7">
-      <div class="placeholder-lines"></div>
-      <div style="font-size:5rem;opacity:0.15;filter:grayscale(1)">⛪</div>
+    <div style="width:100%;aspect-ratio:16/7;background:#1C2B1E;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(74,124,89,0.25) 0%,transparent 55%);"></div>
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(245,244,240,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,244,240,0.025) 1px,transparent 1px);background-size:44px 44px;"></div>
+      <div style="position:relative;text-align:center;">
+<img src="data:image/png;base64,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" alt="Jesus Haus Logo" style="width:52px;height:52px;object-fit:contain;margin:0 auto 1rem;display:block;mix-blend-mode:screen;opacity:0.6;">
+        <div style="font-family:monospace;font-size:0.6rem;letter-spacing:0.35em;color:rgba(94,148,112,0.7);text-transform:uppercase;margin-bottom:0.6rem;">Jesus Haus Netzwerk · München</div>
+        <div style="font-family:Georgia,serif;font-size:2.5rem;font-weight:300;color:#F5F4F0;letter-spacing:0.04em;line-height:1;">Jesus Haus München</div>
+        <div style="width:40px;height:1px;background:rgba(74,124,89,0.5);margin:0.8rem auto;"></div>
+        <div style="font-family:monospace;font-size:0.55rem;letter-spacing:0.22em;color:rgba(94,148,112,0.55);text-transform:uppercase;">Outreach · Content · Community · Brand</div>
+      </div>
+      <div style="position:absolute;top:1.2rem;right:1.5rem;display:flex;align-items:center;gap:7px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#4A7C59;"></div>
+        <span style="font-family:monospace;font-size:0.55rem;letter-spacing:0.15em;color:rgba(74,124,89,0.7);">Active Project</span>
+      </div>
     </div>
     <div class="modal-body">
       <div class="modal-meta">
         <div>
           <div class="project-tags" style="margin-bottom:0.5rem">
-            <span class="project-tag">Web</span>
-            <span class="project-tag">Brand</span>
+            <span class="project-tag">Outreach</span>
             <span class="project-tag">Content</span>
+            <span class="project-tag">Community</span>
+            <span class="project-tag">Strategy</span>
           </div>
-          <h3 class="modal-title" data-en="Local Church — Digital Presence" data-de="Lokale Kirche — Digitale Präsenz">Local Church — Digital Presence</h3>
-          <p class="modal-subtitle" data-en="Community-first website, brand guidelines, and content" data-de="Community-first Website, Brand Guidelines und Content">Community-first website, brand guidelines, and content</p>
+          <h3 class="modal-title" data-en="Jesus Haus München" data-de="Jesus Haus München">Jesus Haus München</h3>
+          <p class="modal-subtitle" data-en="Outreach campaign, content creation & community building — Munich church network" data-de="Outreach-Kampagne, Content Creation & Community Building — Münchner Kirchennetzwerk">Outreach campaign, content creation & community building — Munich church network</p>
         </div>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
+
+      <div class="modal-section">
+        <h4 data-en="The Objective" data-de="Das Ziel">The Objective</h4>
+        <p data-en="Jesus Haus München runs free German language classes — Kostenlose Deutschkurse — aimed at Munich's expat and migrant communities. The goal: increase attendance significantly and build an active online community that kept people engaged between sessions." data-de="Jesus Haus München bietet kostenlose Deutschkurse für Münchens Expat- und Migrantengemeinschaft an. Das Ziel: die Teilnehmerzahl deutlich steigern und eine aktive Online-Community aufbauen.">Jesus Haus München runs free German language classes — Kostenlose Deutschkurse — aimed at Munich's expat and migrant communities. The goal: increase attendance significantly and build an active online community that kept people engaged between sessions.</p>
+      </div>
+
       <div class="modal-grid">
         <div class="modal-section">
-          <h4 data-en="The Challenge" data-de="Die Herausforderung">The Challenge</h4>
-          <p data-en="A local church needed to reach new community members digitally — without losing the warmth and authenticity that defines in-person community." data-de="Eine lokale Kirche musste neue Gemeindemitglieder digital erreichen — ohne die Wärme und Authentizität zu verlieren, die die persönliche Gemeinschaft ausmacht.">A local church needed to reach new community members digitally — without losing the warmth and authenticity that defines in-person community.</p>
+          <h4 data-en="Outreach Strategy" data-de="Outreach-Strategie">Outreach Strategy</h4>
+          <p data-en="Took the campaign offline — visiting <strong>dozens of refugee camps</strong> across Munich to connect directly with the target audience. Documented the journey in a photo carousel shared on social media, turning outreach into content. Simultaneously built an <strong>online community on Meetup</strong> for people to sign up and stay connected." data-de="Die Kampagne wurde offline genommen — Besuche in <strong>Dutzenden von Flüchtlingslagern</strong> in München, um direkt mit der Zielgruppe in Kontakt zu treten. Die Reise wurde in einem Fotokarussell dokumentiert und in den sozialen Medien geteilt. Gleichzeitig wurde eine <strong>Online-Community auf Meetup</strong> aufgebaut.">Took the campaign offline — visiting <strong>dozens of refugee camps</strong> across Munich to connect directly with the target audience. Documented the journey in a photo carousel shared on social media, turning outreach into content. Simultaneously built an <strong>online community on Meetup</strong> for people to sign up and stay connected.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Approach" data-de="Ansatz">Approach</h4>
-          <p data-en="Led with people, not programs. The site centers human stories and community moments rather than event listings and service times." data-de="Menschen standen im Mittelpunkt, nicht Programme. Die Website zeigt menschliche Geschichten und Gemeinschaftsmomente, nicht Veranstaltungslisten.">Led with people, not programs. The site centers human stories and community moments rather than event listings and service times.</p>
+          <h4 data-en="Result" data-de="Ergebnis">Result</h4>
+          <p data-en="Attendance at the Kostenlose Deutschkurse <strong>doubled</strong>. The outreach approach — combining physical presence at refugee camps with digital community building — proved that meeting people where they are, both online and offline, is the most effective strategy for this audience." data-de="Die Teilnehmerzahl an den Kostenlose Deutschkurse <strong>verdoppelte sich</strong>. Der Outreach-Ansatz — physische Präsenz in Flüchtlingslagern kombiniert mit digitalem Community-Aufbau — bewies, dass der direkteste Weg der wirksamste ist.">Attendance at the Kostenlose Deutschkurse <strong>doubled</strong>. The outreach approach — combining physical presence at refugee camps with digital community building — proved that meeting people where they are, both online and offline, is the most effective strategy for this audience.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Deliverables" data-de="Ergebnisse">Deliverables</h4>
-          <p data-en="<strong>Website</strong> (in progress) · <strong>Brand guidelines</strong> (in progress) · <strong>Content pieces</strong> produced · <strong>Content strategy</strong>" data-de="<strong>Website</strong> (in Bearbeitung) · <strong>Brand Guidelines</strong> (in Bearbeitung) · <strong>Content-Stücke</strong> · <strong>Content-Strategie</strong>"><strong>Website</strong> (in progress) · <strong>Brand guidelines</strong> (in progress) · <strong>Content pieces</strong> produced · <strong>Content strategy</strong></p>
+          <h4 data-en="Content Created" data-de="Erstellter Content">Content Created</h4>
+          <p data-en="Produced social content for the Jesus Haus München Instagram — including a <strong>7-slide outreach documentary carousel</strong>, topical content reacting to current events (edited split-screen video of the pastor responding to the Iran situation), and ongoing community posts to keep the audience active and engaged." data-de="Social-Content für das Jesus Haus München Instagram erstellt — darunter ein <strong>7-Folien-Outreach-Dokumentationskarussell</strong>, aktueller Content zu Weltgeschehen sowie laufende Community-Posts.">Produced social content for the Jesus Haus München Instagram — including a <strong>7-slide outreach documentary carousel</strong>, topical content reacting to current events (edited split-screen video of the pastor responding to the Iran situation), and ongoing community posts to keep the audience active and engaged.</p>
         </div>
         <div class="modal-section">
-          <h4 data-en="Status" data-de="Status">Status</h4>
-          <p data-en="Active project — website and brand guidelines currently in development. Content already live." data-de="Aktives Projekt — Website und Brand Guidelines in Entwicklung. Content bereits live.">Active project — website and brand guidelines currently in development. Content already live.</p>
+          <h4 data-en="What's Next" data-de="Was kommt als Nächstes">What's Next</h4>
+          <p data-en="I identified an opportunity: the church network is rebranding under a unified identity — and has no website proposal yet. I am <strong>self-initiating a full brand proposal</strong> — identity system, brand guidelines, and website — to pitch to the network. Active project, in development." data-de="Ich habe eine Chance erkannt: Das Kirchennetzwerk rebrandet sich unter einer einheitlichen Identität — ohne bisherigen Website-Vorschlag. Ich initiiere selbst einen <strong>vollständigen Markenvorschlag</strong> — Identitätssystem, Brand Guidelines und Website. Aktives Projekt, in Entwicklung.">I identified an opportunity: the church network is rebranding under a unified identity — and has no website proposal yet. I am <strong>self-initiating a full brand proposal</strong> — identity system, brand guidelines, and website — to pitch to the network. Active project, in development.</p>
+        </div>
+      </div>
+
+      <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
+        <h4 data-en="Deliverables & Links" data-de="Ergebnisse & Links">Deliverables & Links</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem;">
+          <a href="https://www.meetup.com/learn-german-together-munich-expats-migrants/events/314178959/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Online Community" data-de="↗ Online-Community">↗ Online Community</a>
+          <a href="https://www.instagram.com/p/DW7AiRklzfS/?img_index=1" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Outreach Carousel" data-de="↗ Outreach-Karussell">↗ Outreach Carousel</a>
+          <a href="https://www.instagram.com/p/DXy4VrLSfZY/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Content Post" data-de="↗ Content-Post">↗ Content Post</a>
+          <a href="https://www.instagram.com/p/DUgN5VKkrUQ/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Iran Reaction Edit" data-de="↗ Iran-Reaktionsvideo">↗ Iran Reaction Edit</a>
+          <a href="https://www.instagram.com/jesushausmuenchen" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ @jesushausmuenchen" data-de="↗ @jesushausmuenchen">↗ @jesushausmuenchen</a>
+          <span style="padding:6px 14px;border:0.5px solid rgba(74,124,89,0.35);border-radius:2px;font-size:12px;color:#4A7C59;background:rgba(74,124,89,0.08);" data-en="⬤ Brand Proposal — In Development" data-de="⬤ Markenvorschlag — In Entwicklung">⬤ Brand Proposal — In Development</span>
         </div>
       </div>
     </div>
@@ -1174,9 +1253,19 @@
 
   <!-- Brand Guidelines Modal -->
   <div class="modal" id="modal-brand" style="display:none">
-    <div class="modal-hero placeholder-brand" style="aspect-ratio:16/7">
-      <div class="placeholder-lines"></div>
-      <div style="font-size:5rem;opacity:0.15;filter:grayscale(1)">📐</div>
+    <div style="width:100%;aspect-ratio:16/7;background:#F2EDE3;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(14,14,14,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(14,14,14,0.035) 1px,transparent 1px);background-size:44px 44px;"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#B8935A,#0E0E0E,#B8935A);"></div>
+      <div style="position:relative;text-align:center;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:7rem;line-height:1;color:rgba(14,14,14,0.05);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;">截拳道</div>
+        <div style="font-family:monospace;font-size:0.6rem;letter-spacing:0.45em;color:#B8935A;text-transform:uppercase;margin-bottom:0.8rem;position:relative;">Brand Guidelines · Version 1.0 · 2026</div>
+        <div style="font-family:Georgia,serif;font-size:3rem;font-weight:400;color:#0E0E0E;letter-spacing:0.06em;line-height:1;position:relative;">Jeet Kune Do München</div>
+        <div style="width:44px;height:1px;background:#B8935A;margin:0.8rem auto;"></div>
+        <div style="font-family:Georgia,serif;font-size:0.9rem;font-style:italic;color:#6E6A60;">Der Weg der abfangenden Faust</div>
+      </div>
+      <div style="position:absolute;bottom:1.2rem;right:1.8rem;width:32px;height:32px;background:#8B2F1F;display:flex;align-items:center;justify-content:center;transform:rotate(-2deg);">
+        <span style="font-family:'Noto Serif SC',serif;font-size:0.8rem;color:#F2EDE3;">道</span>
+      </div>
     </div>
     <div class="modal-body">
       <div class="modal-meta">
@@ -1184,20 +1273,46 @@
           <div class="project-tags" style="margin-bottom:0.5rem">
             <span class="project-tag">Brand</span>
             <span class="project-tag">Strategy</span>
+            <span class="project-tag">Identity</span>
           </div>
-          <h3 class="modal-title" data-en="Brand Guidelines System" data-de="Brand Guidelines System">Brand Guidelines System</h3>
-          <p class="modal-subtitle" data-en="Identity, voice, and visual system — built to scale" data-de="Identität, Stimme und visuelles System — skalierbar aufgebaut">Identity, voice, and visual system — built to scale</p>
+          <h3 class="modal-title" data-en="JKDM Brand Guidelines" data-de="JKDM Brand Guidelines">JKDM Brand Guidelines</h3>
+          <p class="modal-subtitle" data-en="Complete brand identity system — 16 pages — Jeet Kune Do München" data-de="Vollständiges Markenidentitätssystem — 16 Seiten — Jeet Kune Do München">Complete brand identity system — 16 pages — Jeet Kune Do München</p>
         </div>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
+
+      <div class="modal-section">
+        <h4 data-en="What It Is" data-de="Was es ist">What It Is</h4>
+        <p data-en="A complete, self-contained brand identity document for Jeet Kune Do München — a private martial arts studio in Munich where Sifu Dominik has taught since 1992. Built from scratch with no brief except the school itself: its philosophy, its teacher, its audience." data-de="Ein vollständiges, eigenständiges Markenidentitätsdokument für Jeet Kune Do München — ein privates Kampfkunststudio in München, in dem Sifu Dominik seit 1992 unterrichtet. Von Grund auf erstellt, ohne Brief außer der Schule selbst: ihre Philosophie, ihr Lehrer, ihre Zielgruppe.">A complete, self-contained brand identity document for Jeet Kune Do München — a private martial arts studio in Munich where Sifu Dominik has taught since 1992. Built from scratch with no brief except the school itself: its philosophy, its teacher, its audience.</p>
+      </div>
+
       <div class="modal-grid">
         <div class="modal-section">
-          <h4 data-en="What It Is" data-de="Was es ist">What It Is</h4>
-          <p data-en="A full brand guidelines document covering mission and values, tone of voice, typography, color system, logo usage, and audience personas." data-de="Ein vollständiges Brand-Guidelines-Dokument mit Mission und Werten, Tone of Voice, Typografie, Farbsystem, Logo-Nutzung und Zielgruppen-Personas.">A full brand guidelines document covering mission and values, tone of voice, typography, color system, logo usage, and audience personas.</p>
+          <h4 data-en="The Strategic Foundation" data-de="Das strategische Fundament">The Strategic Foundation</h4>
+          <p data-en="Positioned against every generic martial arts school — no aggression, no fitness clichés, no warrior mythology. The brand is built around three principles: <strong>concrete over abstract</strong>, <strong>less is more</strong>, and <strong>short and direct</strong>. A school that doesn't need to convince — it simply shows itself." data-de="Positioniert gegen jede generische Kampfkunstschule — keine Aggression, keine Fitness-Klischees. Die Marke basiert auf drei Prinzipien: <strong>Konkret statt abstrakt</strong>, <strong>weniger ist mehr</strong> und <strong>kurz und direkt</strong>.">Positioned against every generic martial arts school — no aggression, no fitness clichés, no warrior mythology. The brand is built around three principles: <strong>concrete over abstract</strong>, <strong>less is more</strong>, and <strong>short and direct</strong>. A school that doesn't need to convince — it simply shows itself.</p>
+        </div>
+        <div class="modal-section">
+          <h4 data-en="The Visual System" data-de="Das visuelle System">The Visual System</h4>
+          <p data-en="Five colours — each sourced from the studio's own material vocabulary: ink (Sumi), rice paper (Reis), brass (Messing), stone (Stein), and ink-stone red (Tusche). Two typefaces: Cormorant Garamond for display, Inter for body. Four Chinese characters with fixed semantic roles. Every decision has a reason." data-de="Fünf Farben — jede aus dem Materialvokabular des Studios: Tusche (Sumi), Reispapier (Reis), Messing, Stein und Tuschestein-Rot. Zwei Schriftarten: Cormorant Garamond für Display, Inter für Body. Vier chinesische Zeichen mit festen semantischen Rollen.">Five colours — each sourced from the studio's own material vocabulary: ink (Sumi), rice paper (Reis), brass (Messing), stone (Stein), and ink-stone red (Tusche). Two typefaces: Cormorant Garamond for display, Inter for body. Four Chinese characters with fixed semantic roles. Every decision has a reason.</p>
+        </div>
+        <div class="modal-section">
+          <h4 data-en="Scope" data-de="Umfang">Scope</h4>
+          <p data-en="10 sections across 16 pages: Introduction & Tone of Voice · Logo Rules · Colour System · Typography · Imagery & Chinese Characters · Web Layout System · Language Examples · Vocabulary · Content Sections · Technical Recommendations · Pre-launch Checklist." data-de="10 Abschnitte auf 16 Seiten: Einführung & Tonalität · Logo-Regeln · Farbsystem · Typografie · Bildsprache & chinesische Zeichen · Web-Layout-System · Sprachbeispiele · Wortschatz · Inhaltssektionen · Technische Empfehlungen · Launch-Checkliste.">10 sections across 16 pages: Introduction & Tone of Voice · Logo Rules · Colour System · Typography · Imagery & Chinese Characters · Web Layout System · Language Examples · Vocabulary · Content Sections · Technical Recommendations · Pre-launch Checklist.</p>
         </div>
         <div class="modal-section">
           <h4 data-en="Why It Matters" data-de="Warum es wichtig ist">Why It Matters</h4>
-          <p data-en="Brand consistency isn't a design problem — it's a strategy problem. These guidelines give teams a shared language for every creative decision." data-de="Markenkonsistenz ist kein Designproblem — es ist ein Strategieproblem. Diese Guidelines geben Teams eine gemeinsame Sprache für jede kreative Entscheidung.">Brand consistency isn't a design problem — it's a strategy problem. These guidelines give teams a shared language for every creative decision.</p>
+          <p data-en="Brand consistency is not a design problem — it's a strategy problem. These guidelines give anyone who works with JKDM a shared language for every creative decision, from a social post to a full website rebuild. Built to last, not just for the current site." data-de="Markenkonsistenz ist kein Designproblem — es ist ein Strategieproblem. Diese Guidelines geben jedem, der mit JKDM arbeitet, eine gemeinsame Sprache für jede kreative Entscheidung. Gebaut um zu bleiben.">Brand consistency is not a design problem — it's a strategy problem. These guidelines give anyone who works with JKDM a shared language for every creative decision, from a social post to a full website rebuild. Built to last, not just for the current site.</p>
+        </div>
+      </div>
+
+      <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
+        <h4 data-en="Deliverables" data-de="Ergebnisse">Deliverables</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem;">
+          <a href="https://luzmundi.github.io/luciano-ramirez-portfolio/JKDM_Brand_Guidelines.pdf" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Read the Full Document" data-de="↗ Vollständiges Dokument lesen">↗ Read the Full Document</a>
+          <a href="https://luzmundi.github.io/jkdm-website/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Website Built From It" data-de="↗ Daraus entstandene Website">↗ Website Built From It</a>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="16 Pages" data-de="16 Seiten">16 Pages</span>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="10 Sections" data-de="10 Abschnitte">10 Sections</span>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="5-Colour System" data-de="5-Farben-System">5-Colour System</span>
         </div>
       </div>
     </div>
@@ -1206,25 +1321,29 @@
 </div>
 
 <script>
-  // Cursor
+  // Cursor — desktop only
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
+  const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
+  if (!isTouch) {
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+
+    function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
   }
-  animRing();
 
   // Lang toggle
   let currentLang = 'en';
