@@ -782,6 +782,30 @@
 
   @media (max-width: 600px) {
     .process-grid { grid-template-columns: 1fr; }
+
+    /* Modals: decompress layout on small screens */
+    .modal-overlay { padding: 1rem 0.5rem 2rem; }
+    .modal { margin: 0; }
+    .modal-body { padding: 1.5rem 1.1rem; }
+    .modal-meta { margin-bottom: 1.4rem; }
+    .modal-title { font-size: 1.55rem; }
+    .modal-subtitle { font-size: 13px; }
+    .modal-section { margin-bottom: 1.5rem; }
+    .modal-section p { font-size: 13.5px; line-height: 1.7; }
+    .modal-grid { gap: 1.2rem; margin-bottom: 1.5rem; }
+
+    /* Inline-styled modal heroes: release fixed aspect ratio & scale type down */
+    .modal > div[style*="aspect-ratio"] { aspect-ratio: auto !important; padding: 2.2rem 1.1rem; }
+    .modal div[style*="font-size:3.4rem"] { font-size: 1.9rem !important; }
+    .modal div[style*="font-size:1.15rem"] { font-size: 0.95rem !important; }
+    .modal div[style*="letter-spacing:0.22em"] { font-size: 0.55rem !important; letter-spacing: 0.14em !important; line-height: 1.7 !important; }
+    .modal div[style*="letter-spacing:0.18em"] { font-size: 0.55rem !important; letter-spacing: 0.12em !important; line-height: 1.7 !important; }
+    .modal img[style*="width:76px"] { width: 58px !important; height: 58px !important; }
+
+    /* Recommendation quote */
+    .modal blockquote { padding: 0.9rem 1rem !important; }
+    .modal blockquote p { font-size: 13px !important; }
+    .modal blockquote footer { font-size: 0.72rem !important; }
   }
 
   /* Hide custom cursor on touch devices */
@@ -1241,9 +1265,18 @@
       </div>
 
       <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
+        <h4 data-en="What the Client Says" data-de="Was der Kunde sagt">What the Client Says</h4>
+        <blockquote style="margin:0.8rem 0 0;padding:1.2rem 1.4rem;border-left:2px solid #E91E8C;background:var(--violet-dim);border-radius:2px;">
+          <p style="margin:0;font-style:italic;" data-en="&ldquo;He listens, quickly understands what your business lives on, and comes back with concrete solutions. He delivers what he promises, on the deadlines he promises. And you can tell he cares about the business doing well &mdash; not just delivering and getting paid. Even after finishing the job, he kept proposing ideas to grow TheCakeStudio. I recommend Luciano without reservation to any company that needs someone capable of taking charge of its entire digital presence, from idea to execution.&rdquo;" data-de="&bdquo;Er h&ouml;rt zu, versteht schnell, wovon das Gesch&auml;ft lebt, und kommt mit konkreten L&ouml;sungen zur&uuml;ck. Er liefert, was er verspricht, in den Fristen, die er verspricht. Und man merkt, dass ihm der Erfolg des Unternehmens wichtig ist &mdash; nicht nur liefern und kassieren. Auch nach Abschluss der Arbeit schlug er weiter Ideen vor, um TheCakeStudio wachsen zu lassen. Ich empfehle Luciano ohne Vorbehalte jedem Unternehmen, das jemanden braucht, der die gesamte digitale Pr&auml;senz verantworten kann &mdash; von der Idee bis zur Umsetzung.&ldquo;">&ldquo;He listens, quickly understands what your business lives on, and comes back with concrete solutions. He delivers what he promises, on the deadlines he promises. And you can tell he cares about the business doing well &mdash; not just delivering and getting paid. Even after finishing the job, he kept proposing ideas to grow TheCakeStudio. I recommend Luciano without reservation to any company that needs someone capable of taking charge of its entire digital presence, from idea to execution.&rdquo;</p>
+          <footer style="margin-top:0.8rem;font-size:0.8rem;color:var(--violet);" data-en="&mdash; Eduard Peraza, Sous Chef &amp; Owner, TheCakeStudio &middot; Santiago de Chile, July 2026" data-de="&mdash; Eduard Peraza, Sous Chef &amp; Inhaber, TheCakeStudio &middot; Santiago de Chile, Juli 2026">&mdash; Eduard Peraza, Sous Chef &amp; Owner, TheCakeStudio &middot; Santiago de Chile, July 2026</footer>
+        </blockquote>
+      </div>
+
+      <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
         <h4 data-en="Deliverables" data-de="Ergebnisse">Deliverables</h4>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem;">
           <a href="https://www.thecakestudio.cl/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Website (live)" data-de="↗ Website (live)">↗ Website (live)</a>
+          <a href="carta-recomendacion-thecakestudio.pdf" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Recommendation Letter (PDF)" data-de="↗ Empfehlungsschreiben (PDF)">↗ Recommendation Letter (PDF)</a>
           <a href="https://www.youtube.com/watch?v=YQ1OAR8ee_g" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ AI Pitch Video" data-de="↗ KI-Pitch-Video">↗ AI Pitch Video</a>
           <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="WhatsApp Order System" data-de="WhatsApp-Bestellsystem">WhatsApp Order System</span>
           <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="AI Voice Clone + Photo Animation" data-de="KI-Stimmklon + Foto-Animation">AI Voice Clone + Photo Animation</span>
