@@ -263,6 +263,43 @@
     background: var(--violet);
   }
 
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 1s;
+  }
+
+  .hero-stat-item {
+    border-left: 2px solid var(--violet);
+    padding-left: 1.3rem;
+  }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
   /* Section base */
   section { padding: 7rem 4rem; }
 
@@ -755,6 +792,9 @@
     .nav-links { display: none; }
     section { padding: 5rem 2rem; }
     #hero { padding: 7rem 2rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem 2rem; }
+    .hero-stat-item { flex: 1 1 140px; }
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .project-card.wide,
     .project-card.narrow,
@@ -847,17 +887,33 @@
   <div class="hero-bg-grid"></div>
   <div class="hero-glow"></div>
   <div style="width:100%;max-width:1200px;margin:0 auto;position:relative;z-index:1;">
-    <div>
-      <div class="hero-number" data-en="Creative Strategist / Content Creator / Munich" data-de="Creative Strategist / Content Creator / München" data-es="Creative Strategist / Content Creator / Múnich">Creative Strategist / Content Creator / Munich</div>
-      <h1 class="hero-name">Luciano<br><em>Ramírez.</em></h1>
-      <p class="hero-tagline">
-        <span data-en="Exploring Worlds." data-de="Welten entdecken." data-es="Descubrir mundos.">Exploring Worlds.</span>
-        <span data-en="And Writing Chapters." data-de="Und Kapitel schreiben." data-es="Y escribir capítulos.">And Writing Chapters.</span><br>
-        <span class="muted-text" data-en="Strategy-led content that connects brands with the people who matter." data-de="Strategiegetriebener Content, der Marken mit den richtigen Menschen verbindet." data-es="Contenido guiado por estrategia que conecta marcas con las personas que importan.">Strategy-led content that connects brands with the people who matter.</span>
-      </p>
-      <div class="hero-cta">
-        <a href="#work" class="btn-primary" data-en="View My Work" data-de="Meine Arbeiten" data-es="Ver mis proyectos">View My Work</a>
-        <a href="https://www.linkedin.com/in/luciano-gabriel-ramirez-garea/" target="_blank" class="btn-ghost" data-en="↗ LinkedIn" data-de="↗ LinkedIn" data-es="↗ LinkedIn">↗ LinkedIn</a>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-number" data-en="Creative Strategist / Content Creator / Munich" data-de="Creative Strategist / Content Creator / München" data-es="Creative Strategist / Content Creator / Múnich">Creative Strategist / Content Creator / Munich</div>
+        <h1 class="hero-name">Luciano<br><em>Ramírez.</em></h1>
+        <p class="hero-tagline">
+          <span data-en="Exploring Worlds." data-de="Welten entdecken." data-es="Descubrir mundos.">Exploring Worlds.</span>
+          <span data-en="And Writing Chapters." data-de="Und Kapitel schreiben." data-es="Y escribir capítulos.">And Writing Chapters.</span><br>
+          <span class="muted-text" data-en="Strategy-led content that connects brands with the people who matter." data-de="Strategiegetriebener Content, der Marken mit den richtigen Menschen verbindet." data-es="Contenido guiado por estrategia que conecta marcas con las personas que importan.">Strategy-led content that connects brands with the people who matter.</span>
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="btn-primary" data-en="View My Work" data-de="Meine Arbeiten" data-es="Ver mis proyectos">View My Work</a>
+          <a href="https://www.linkedin.com/in/luciano-gabriel-ramirez-garea/" target="_blank" class="btn-ghost" data-en="↗ LinkedIn" data-de="↗ LinkedIn" data-es="↗ LinkedIn">↗ LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">590K+</div>
+          <div class="hero-stat-label" data-en="Combined views — Instagram &amp; TikTok (last 90 days)" data-de="Kombinierte Views — Instagram &amp; TikTok (letzte 90 Tage)" data-es="Vistas combinadas — Instagram y TikTok (últimos 90 días)">Combined views — Instagram &amp; TikTok (last 90 days)</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">360K</div>
+          <div class="hero-stat-label" data-en="Views on a single video" data-de="Views bei einem einzelnen Video" data-es="Vistas en un solo video">Views on a single video</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">2.1K+</div>
+          <div class="hero-stat-label" data-en="Followers, grown organically" data-de="Follower, organisch gewachsen" data-es="Seguidores, crecimiento orgánico">Followers, grown organically</div>
+        </div>
       </div>
     </div>
   </div>
