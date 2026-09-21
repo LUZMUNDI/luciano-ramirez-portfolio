@@ -787,6 +787,10 @@
   }
 
   /* Responsive */
+  /* JKDM card (sifudominik.de) */
+  @media (min-width: 901px) { .jkd-center { transform: translateY(-22%); } .jkd-foot { top: 3.2rem; bottom: auto !important; } }
+  @media (max-width: 600px) { .jkd-hud, .jkd-foot { display: none !important; } }
+
   @media (max-width: 900px) {
     nav { padding: 1.5rem 2rem; }
     .nav-links { display: none; }
@@ -1057,20 +1061,27 @@
 
     <!-- Project 1: JKD School -->
     <div class="project-card wide" data-category="web brand" onclick="openModal('jkd')">
-      <div style="width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:#0E0E0E;display:flex;align-items:center;justify-content:center;">
+      <div style="width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:#0B0B0D;display:flex;align-items:center;justify-content:center;">
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(242,237,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,227,0.03) 1px,transparent 1px);background-size:60px 60px;"></div>
-        <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(184,147,90,0.07) 0%,transparent 65%);"></div>
-        <div style="position:relative;text-align:center;user-select:none;">
-          <div style="font-family:'Noto Serif SC',serif;font-size:5.5rem;line-height:1;color:rgba(242,237,227,0.08);letter-spacing:-0.02em;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(2.2);white-space:nowrap;pointer-events:none;">截拳道</div>
-          <div style="font-family:Georgia,serif;font-size:1rem;letter-spacing:0.32em;color:#B8935A;text-transform:uppercase;margin-bottom:1.2rem;position:relative;">Jeet Kune Do</div>
-          <div style="font-family:Georgia,serif;font-size:3.2rem;font-weight:400;color:#F2EDE3;letter-spacing:0.04em;line-height:1;position:relative;">München</div>
-          <div style="width:40px;height:1px;background:#B8935A;margin:1.2rem auto;"></div>
-          <div style="font-family:monospace;font-size:0.65rem;letter-spacing:0.22em;color:rgba(184,147,90,0.6);text-transform:uppercase;">Since 1992</div>
+        <div style="position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(200,48,43,0.16) 50%,transparent 58%),radial-gradient(ellipse at 50% 55%,rgba(184,147,90,0.12) 0%,transparent 60%);"></div>
+        <div class="jkd-hud" style="position:absolute;top:1.3rem;left:1.6rem;right:1.6rem;display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;color:rgba(242,237,227,0.55);">
+          <span>STORY MODE</span>
+          <div style="flex:1;height:6px;border:1px solid rgba(184,147,90,0.5);transform:skewX(-20deg);"><div style="width:100%;height:100%;background:linear-gradient(90deg,#8B2F1F,#B8935A);"></div></div>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.8rem;color:#B8935A;letter-spacing:0.05em;">VS</span>
+          <div style="flex:1;height:6px;border:1px solid rgba(184,147,90,0.5);transform:skewX(20deg);"><div style="width:100%;height:100%;background:linear-gradient(270deg,#8B2F1F,#B8935A);"></div></div>
+          <span>ROSTER</span>
         </div>
-        <div style="position:absolute;bottom:1.5rem;right:1.8rem;width:32px;height:32px;border:1px solid rgba(139,47,31,0.6);display:flex;align-items:center;justify-content:center;transform:rotate(-3deg);">
-          <span style="font-family:'Noto Serif SC',serif;font-size:0.9rem;color:#8B2F1F;">道</span>
+        <div class="jkd-center" style="position:relative;text-align:center;user-select:none;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:5.5rem;line-height:1;color:rgba(242,237,227,0.06);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(2.2);white-space:nowrap;pointer-events:none;">截拳道</div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.32em;color:#B8935A;text-transform:uppercase;margin-bottom:0.9rem;position:relative;">Jeet Kune Do München</div>
+          <div style="font-family:'Syne',sans-serif;font-size:2.9rem;font-weight:800;font-style:italic;color:#F2EDE3;letter-spacing:-0.01em;line-height:0.95;text-transform:uppercase;position:relative;text-shadow:3px 3px 0 #8B2F1F;">Sifu<br>Dominik</div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.35em;color:#F2EDE3;margin-top:1.2rem;animation:pulse 1.6s ease-in-out infinite;position:relative;">▶ PRESS START</div>
         </div>
-        <div style="position:absolute;top:1.5rem;left:1.8rem;font-family:monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(242,237,227,0.15);">JKDM · Brand + Web + Content</div>
+        <div class="jkd-foot" style="position:absolute;bottom:1.3rem;left:1.6rem;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;color:rgba(242,237,227,0.35);">sifudominik.de · Astro</div>
+        <div class="jkd-foot" style="position:absolute;bottom:1.1rem;right:1.6rem;display:flex;align-items:center;gap:6px;background:rgba(184,147,90,0.12);border:0.5px solid rgba(184,147,90,0.4);border-radius:999px;padding:4px 11px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#B8935A;animation:pulse 2s ease-in-out infinite;"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:#B8935A;text-transform:uppercase;">Live · Rebrand 2026</span>
+        </div>
       </div>
       <div class="project-overlay">
         <div class="project-tags">
@@ -1080,7 +1091,7 @@
           <span class="project-tag">Strategy</span>
         </div>
         <div class="project-title" data-en="Jeet Kune Do München" data-de="Jeet Kune Do München" data-es="Jeet Kune Do München">Jeet Kune Do München</div>
-        <div class="project-desc" data-en="End-to-end campaign: brand guidelines, website, and 3-video content strategy for a private Munich martial arts studio." data-de="End-to-End-Kampagne: Brand Guidelines, Website und 3-Video-Content-Strategie für ein privates Münchner Kampfkunststudio." data-es="Campaña integral: brand guidelines, sitio web y estrategia de contenido de 3 videos para un estudio privado de artes marciales en Múnich.">End-to-end campaign: brand guidelines, website, and 3-video content strategy for a private Munich martial arts studio.</div>
+        <div class="project-desc" data-en="Tekken-inspired rebrand and new website, sifudominik.de — my concept, design and Astro build — plus brand guidelines and a 3-video content system for a private Munich martial arts studio." data-de="Tekken-inspiriertes Rebranding und neue Website, sifudominik.de — Konzept, Design und Astro-Build von mir — plus Brand Guidelines und ein 3-Video-Content-System für ein privates Münchner Kampfkunststudio." data-es="Rebranding inspirado en Tekken y nuevo sitio web, sifudominik.de — concepto, diseño y desarrollo en Astro míos — más brand guidelines y un sistema de contenido de 3 videos para un estudio privado de artes marciales en Múnich.">Tekken-inspired rebrand and new website, sifudominik.de — my concept, design and Astro build — plus brand guidelines and a 3-video content system for a private Munich martial arts studio.</div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
@@ -1420,17 +1431,16 @@
 
   <!-- JKD Modal -->
   <div class="modal" id="modal-jkd" style="display:none">
-    <div style="width:100%;aspect-ratio:16/7;background:#0E0E0E;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+    <div style="width:100%;aspect-ratio:16/7;background:#0B0B0D;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(242,237,227,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,227,0.025) 1px,transparent 1px);background-size:50px 50px;"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,147,90,0.08) 0%,transparent 60%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(200,48,43,0.14) 50%,transparent 60%),radial-gradient(ellipse at 50% 55%,rgba(184,147,90,0.1) 0%,transparent 60%);"></div>
       <div style="position:relative;text-align:center;">
-        <div style="font-family:Georgia,serif;font-size:0.75rem;letter-spacing:0.4em;color:#B8935A;text-transform:uppercase;margin-bottom:1rem;">Jeet Kune Do</div>
-        <div style="font-family:Georgia,serif;font-size:4rem;font-weight:300;color:#F2EDE3;letter-spacing:0.06em;line-height:1;">München</div>
-        <div style="width:50px;height:0.5px;background:#B8935A;margin:1rem auto;"></div>
-        <div style="font-family:monospace;font-size:0.6rem;letter-spacing:0.28em;color:rgba(184,147,90,0.55);text-transform:uppercase;">Der Weg der abfangenden Faust</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:#B8935A;text-transform:uppercase;margin-bottom:0.9rem;">Jeet Kune Do München · Since 1992</div>
+        <div style="font-family:'Syne',sans-serif;font-size:3.6rem;font-weight:800;font-style:italic;color:#F2EDE3;letter-spacing:-0.01em;line-height:0.95;text-transform:uppercase;text-shadow:4px 4px 0 #8B2F1F;">Sifu Dominik</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.35em;color:#F2EDE3;margin-top:1.1rem;animation:pulse 1.6s ease-in-out infinite;">▶ PRESS START</div>
       </div>
-      <div style="position:absolute;bottom:1.5rem;right:2rem;display:flex;gap:1rem;align-items:center;">
-        <span style="font-family:monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(242,237,227,0.2);">Web · Brand · Video · Strategy</span>
+      <div style="position:absolute;bottom:1.5rem;right:2rem;">
+        <span style="font-family:monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(242,237,227,0.3);">sifudominik.de · Web · Brand · Video · Strategy</span>
       </div>
     </div>
     <div class="modal-body">
@@ -1443,7 +1453,7 @@
             <span class="project-tag">Strategy</span>
           </div>
           <h3 class="modal-title" data-en="Jeet Kune Do München" data-de="Jeet Kune Do München" data-es="Jeet Kune Do München">Jeet Kune Do München</h3>
-          <p class="modal-subtitle" data-en="Private martial arts studio, Munich — brand identity, website & content campaign" data-de="Privates Kampfkunststudio, München — Markenidentität, Website & Content-Kampagne" data-es="Estudio privado de artes marciales, Múnich — identidad de marca, sitio web y campaña de contenido">Private martial arts studio, Munich — brand identity, website & content campaign</p>
+          <p class="modal-subtitle" data-en="Private martial arts studio, Munich — Tekken-inspired rebrand, website &amp; content campaign" data-de="Privates Kampfkunststudio, München — Tekken-inspiriertes Rebranding, Website &amp; Content-Kampagne" data-es="Estudio privado de artes marciales, Múnich — rebranding inspirado en Tekken, sitio web y campaña de contenido">Private martial arts studio, Munich — Tekken-inspired rebrand, website &amp; content campaign</p>
         </div>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
@@ -1452,6 +1462,11 @@
       <div class="modal-section">
         <h4 data-en="Objective" data-de="Ziel" data-es="Objetivo">Objective</h4>
         <p data-en="Increase local awareness and generate trial class enquiries for a private Munich studio where Sifu Dominik has taught Jeet Kune Do, Wing Chun, self-defence, and Chen Tai Chi since 1992. The challenge: position a deeply personal, philosophy-driven school in a market dominated by fitness-oriented martial arts clubs." data-de="Lokale Bekanntheit steigern und Probetraining-Anfragen für ein privates Münchner Studio generieren, in dem Sifu Dominik seit 1992 Jeet Kune Do, Wing Chun, Selbstverteidigung und Chen Tai Chi unterrichtet. Die Herausforderung: eine tiefgründige, philosophiegetriebene Schule in einem von Fitness-orientierten Kampfsportvereinen dominierten Markt positionieren." data-es="Aumentar el reconocimiento local y generar solicitudes de clases de prueba para un estudio privado de Múnich donde el Sifu Dominik enseña Jeet Kune Do, Wing Chun, defensa personal y Chen Tai Chi desde 1992. El desafío: posicionar una escuela profundamente personal y guiada por la filosofía en un mercado dominado por clubes de artes marciales orientados al fitness.">Increase local awareness and generate trial class enquiries for a private Munich studio where Sifu Dominik has taught Jeet Kune Do, Wing Chun, self-defence, and Chen Tai Chi since 1992. The challenge: position a deeply personal, philosophy-driven school in a market dominated by fitness-oriented martial arts clubs.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4 data-en="The Rebrand — sifudominik.de" data-de="Das Rebranding — sifudominik.de" data-es="El rebranding — sifudominik.de">The Rebrand — sifudominik.de</h4>
+        <p data-en="sifudominik.de is a full rebrand of the studio's previous site, jeet-kune-do-muenchen.de. It started with a conversation: I asked Sifu Dominik what he loves, and the answer was <strong>Tekken</strong>. So the whole site is structured like the game — <strong>concept and design are mine</strong>. <strong>Story Mode</strong> is the About page. <strong>Roster</strong> turns student reviews into a character-select screen. The home page has its own <strong>Press Start</strong>. A style he picked, turned into something real." data-de="sifudominik.de ist ein komplettes Rebranding der bisherigen Website jeet-kune-do-muenchen.de. Es begann mit einem Gespräch: Ich habe Sifu Dominik gefragt, was er liebt — die Antwort war <strong>Tekken</strong>. Also ist die ganze Seite wie das Spiel aufgebaut — <strong>Konzept und Design stammen von mir</strong>. <strong>Story Mode</strong> ist die Über-uns-Seite. <strong>Roster</strong> macht Schülerbewertungen zum Character-Select-Screen. Die Startseite hat ihr eigenes <strong>Press Start</strong>. Ein Stil, den er gewählt hat — umgesetzt in etwas Echtes." data-es="sifudominik.de es un rebranding completo del sitio anterior del estudio, jeet-kune-do-muenchen.de. Nació de una conversación: le pregunté al Sifu Dominik qué ama, y la respuesta fue <strong>Tekken</strong>. Así que todo el sitio está estructurado como el juego — <strong>el concepto y el diseño son míos</strong>. <strong>Story Mode</strong> es la página Über uns. <strong>Roster</strong> convierte las reseñas de alumnos en una pantalla de selección de personaje. La portada tiene su propio <strong>Press Start</strong>. Un estilo que él eligió, convertido en algo real.">sifudominik.de is a full rebrand of the studio's previous site, jeet-kune-do-muenchen.de. It started with a conversation: I asked Sifu Dominik what he loves, and the answer was <strong>Tekken</strong>. So the whole site is structured like the game — <strong>concept and design are mine</strong>. <strong>Story Mode</strong> is the About page. <strong>Roster</strong> turns student reviews into a character-select screen. The home page has its own <strong>Press Start</strong>. A style he picked, turned into something real.</p>
       </div>
 
       <div class="modal-grid">
@@ -1469,7 +1484,15 @@
         </div>
         <div class="modal-section">
           <h4 data-en="Content Strategy" data-de="Content-Strategie" data-es="Estrategia de contenido">Content Strategy</h4>
-          <p data-en="Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> (Sifu talking head + B-roll) to establish narrative and credibility; a <strong>20s short-form cut</strong> optimised for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> of a student executing 4 techniques to create immersion and reduce the perceived distance to training." data-de="Ein <strong>3-Format-Videosystem</strong> entwickelt, jedes mit einer eigenen Rolle: ein <strong>60s Hero-Video</strong> (Sifu Talking Head + B-Roll) für Narrative und Glaubwürdigkeit; ein <strong>20s Short-Form-Schnitt</strong> für Reels/TikTok als Conversion-Trigger; und ein <strong>13s POV-Video</strong> eines Schülers, der 4 Techniken ausführt." data-es="Diseñé un <strong>sistema de video de 3 formatos</strong>, cada uno con un rol propio: un <strong>video hero de 60s</strong> (Sifu a cámara + B-roll) para establecer narrativa y credibilidad; un <strong>corte short-form de 20s</strong> optimizado para Reels/TikTok como disparador de conversión; y un <strong>video POV de 13s</strong> de un alumno ejecutando 4 técnicas para crear inmersión y reducir la distancia percibida hacia el entrenamiento.">Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> (Sifu talking head + B-roll) to establish narrative and credibility; a <strong>20s short-form cut</strong> optimised for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> of a student executing 4 techniques to create immersion and reduce the perceived distance to training.</p>
+          <p data-en="Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> — Sifu speaking to camera about the school's philosophy and dynamic, cut with real B-roll; a <strong>20s short-form cut</strong> for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> — a student showing real technique, social-first with fast cuts. The hero and POV videos are embedded on sifudominik.de." data-de="Ein <strong>3-Format-Videosystem</strong> entwickelt, jedes mit eigener Rolle: ein <strong>60s Hero-Video</strong> — Sifu spricht in die Kamera über Philosophie und Dynamik der Schule, geschnitten mit echtem B-Roll; ein <strong>20s Short-Form-Schnitt</strong> für Reels/TikTok als Conversion-Trigger; und ein <strong>13s POV-Video</strong> — ein Schüler zeigt echte Technik, Social-First mit schnellen Schnitten. Hero- und POV-Video sind auf sifudominik.de eingebunden." data-es="Diseñé un <strong>sistema de video de 3 formatos</strong>, cada uno con un rol propio: un <strong>video hero de 60s</strong> — el Sifu hablándole a la cámara sobre la filosofía y la dinámica de la escuela, con B-roll real; un <strong>corte short-form de 20s</strong> para Reels/TikTok como disparador de conversión; y un <strong>video POV de 13s</strong> — un alumno mostrando técnica real, estilo redes con cortes rápidos. El video hero y el POV están integrados en sifudominik.de.">Designed a <strong>3-format video system</strong>, each with a distinct role: a <strong>60s hero video</strong> — Sifu speaking to camera about the school's philosophy and dynamic, cut with real B-roll; a <strong>20s short-form cut</strong> for Reels/TikTok as a conversion trigger; and a <strong>13s POV video</strong> — a student showing real technique, social-first with fast cuts. The hero and POV videos are embedded on sifudominik.de.</p>
+        </div>
+        <div class="modal-section">
+          <h4 data-en="Build &amp; Stack" data-de="Build &amp; Stack" data-es="Construcción y stack">Build &amp; Stack</h4>
+          <p data-en="Built in <strong>Astro</strong> with <strong>Claude Code</strong>; design developed in <strong>Claude Design</strong>. The code lives on <strong>GitHub</strong> and deploys automatically to <strong>Cloudflare Pages</strong>, which also runs the domain's DNS. The trial-class form sends straight to the Sifu's inbox via <strong>Web3Forms</strong>." data-de="Gebaut mit <strong>Astro</strong> und <strong>Claude Code</strong>; Design entwickelt in <strong>Claude Design</strong>. Der Code liegt auf <strong>GitHub</strong> und wird automatisch auf <strong>Cloudflare Pages</strong> deployt, das auch das DNS der Domain verwaltet. Das Probetraining-Formular landet über <strong>Web3Forms</strong> direkt im Postfach des Sifu." data-es="Construido en <strong>Astro</strong> con <strong>Claude Code</strong>; diseño desarrollado en <strong>Claude Design</strong>. El código vive en <strong>GitHub</strong> y se despliega automáticamente en <strong>Cloudflare Pages</strong>, que también maneja el DNS del dominio. El formulario de clase de prueba llega directo al correo del Sifu vía <strong>Web3Forms</strong>.">Built in <strong>Astro</strong> with <strong>Claude Code</strong>; design developed in <strong>Claude Design</strong>. The code lives on <strong>GitHub</strong> and deploys automatically to <strong>Cloudflare Pages</strong>, which also runs the domain's DNS. The trial-class form sends straight to the Sifu's inbox via <strong>Web3Forms</strong>.</p>
+        </div>
+        <div class="modal-section">
+          <h4 data-en="Handover" data-de="Übergabe" data-es="Entrega">Handover</h4>
+          <p data-en="The site is his, not mine. Through <strong>Decap CMS</strong>, Sifu Dominik can change <strong>every photo and every line</strong> himself — no developer needed. The trial-class form works: pick a slot, send, done." data-de="Die Seite gehört ihm, nicht mir. Über <strong>Decap CMS</strong> kann Sifu Dominik <strong>jedes Foto und jede Zeile</strong> selbst ändern — ganz ohne Entwickler. Das Probetraining-Formular funktioniert: Termin wählen, absenden, fertig." data-es="El sitio es de él, no mío. Con <strong>Decap CMS</strong>, el Sifu Dominik puede cambiar <strong>cada foto y cada línea</strong> él mismo — sin depender de un desarrollador. El formulario de clase de prueba funciona: elige horario, envía, listo.">The site is his, not mine. Through <strong>Decap CMS</strong>, Sifu Dominik can change <strong>every photo and every line</strong> himself — no developer needed. The trial-class form works: pick a slot, send, done.</p>
         </div>
       </div>
 
@@ -1477,14 +1500,21 @@
       <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
         <h4 data-en="Deliverables" data-de="Ergebnisse" data-es="Entregables">Deliverables</h4>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem;">
-          <a href="https://luzmundi.github.io/jkdm-website/" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Website (live)" data-de="↗ Website (live)" data-es="↗ Sitio web (en línea)">↗ Website (live)</a>
+          <a href="https://sifudominik.de" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ sifudominik.de (live)" data-de="↗ sifudominik.de (live)" data-es="↗ sifudominik.de (en línea)">↗ sifudominik.de (live)</a>
           <a href="https://luzmundi.github.io/luciano-ramirez-portfolio/JKDM_Brand_Guidelines.pdf" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ Brand Guidelines PDF" data-de="↗ Brand Guidelines PDF" data-es="↗ PDF de Brand Guidelines">↗ Brand Guidelines PDF</a>
           <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="Audience Research Doc" data-de="Zielgruppenanalyse" data-es="Doc de investigación de audiencia">Audience Research Doc</span>
           <a href="https://youtube.com/shorts/PvtKm_eDefU?si=-VRJlEKnI3YuosPm" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 60s Hero Video" data-de="↗ 60s Hero-Video" data-es="↗ Video hero de 60s">↗ 60s Hero Video</a>
           <a href="https://youtube.com/shorts/864cIjF-1B4?si=PoYyqsoeR3Jf0bkd" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 20s Social Cut" data-de="↗ 20s Social-Cut" data-es="↗ Corte social de 20s">↗ 20s Social Cut</a>
           <a href="https://youtube.com/shorts/jjmuAcsshp0?si=8yVZHOi6uSmeuoAO" target="_blank" style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(123,110,246,0.25)'" onmouseout="this.style.background='var(--violet-dim)'" data-en="↗ 13s POV Video" data-de="↗ 13s POV-Video" data-es="↗ Video POV de 13s">↗ 13s POV Video</a>
           <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="Content Campaign Structure" data-de="Content-Kampagnenstruktur" data-es="Estructura de campaña de contenido">Content Campaign Structure</span>
+          <span style="padding:6px 14px;border:0.5px solid var(--border-accent);border-radius:2px;font-size:12px;color:var(--violet);background:var(--violet-dim);" data-en="Decap CMS — owner-editable" data-de="Decap CMS — vom Inhaber editierbar" data-es="Decap CMS — editable por el dueño">Decap CMS — owner-editable</span>
         </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:1.5rem;">
+        <h4 data-en="Tools" data-de="Tools" data-es="Herramientas">Tools</h4>
+        <div class="project-tags" style="margin-top:0.7rem;"><span class="project-tag">Astro</span><span class="project-tag">GitHub</span><span class="project-tag">Cloudflare Pages</span><span class="project-tag">Cloudflare DNS</span><span class="project-tag">Decap CMS</span><span class="project-tag">Web3Forms</span><span class="project-tag">Claude Design</span><span class="project-tag">Claude Code</span></div>
       </div>
 
       <!-- Recommendation Letter -->
